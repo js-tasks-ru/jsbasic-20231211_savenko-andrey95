@@ -69,6 +69,13 @@ export default class RibbonMenu {
       item.addEventListener("click", (event) => {
         event.preventDefault();
 
+        for (let item of ribbonItem) {
+          if (item.classList.contains("ribbon__item_active")) {
+            item.classList.remove("ribbon__item_active");
+          }
+        }
+        event.target.classList.add("ribbon__item_active");
+
         let customEvent = new CustomEvent("ribbon-select", {
           detail: event.target.dataset.id,
           bubbles: true,
