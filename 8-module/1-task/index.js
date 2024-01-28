@@ -38,6 +38,11 @@ export default class CartIcon {
     }
   }
 
+  addEventListeners() {
+    document.addEventListener("scroll", () => this.updatePosition());
+    window.addEventListener("resize", () => this.updatePosition());
+  }
+
   updatePosition() {
     if (!this.elem.offsetHeight) {
       return;
@@ -80,10 +85,5 @@ export default class CartIcon {
         zIndex: "",
       });
     }
-  }
-
-  addEventListeners() {
-    document.addEventListener("scroll", () => this.updatePosition());
-    window.addEventListener("resize", () => this.updatePosition());
   }
 }
